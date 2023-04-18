@@ -57,7 +57,7 @@ public class CamelConfig {
         } catch (NamingException e) {
             System.out.println("\n\nNAMING EXCEPTION   2222222");
         }
-
+//      comment in main branch
         return ComponentsBuilderFactory.sjms2().connectionFactory(queueConnectionFactory).build();
     }
 
