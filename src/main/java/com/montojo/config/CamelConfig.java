@@ -58,6 +58,9 @@ public class CamelConfig {
             System.out.println("\n\nNAMING EXCEPTION   2222222");
         }
 //      comment in main branch
+//        another comment in main
+//        another comment in main
+//        another comment in main
         return ComponentsBuilderFactory.sjms2().connectionFactory(queueConnectionFactory).build();
     }
 
