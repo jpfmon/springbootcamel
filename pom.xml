@@ -61,7 +61,21 @@
       <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
 
+
+    <!-- https://mvnrepository.com/artifact/javax.jms/javax.jms-api -->
+    <dependency>
+      <groupId>javax.jms</groupId>
+      <artifactId>javax.jms-api</artifactId>
+      <version>2.0.1</version>
+    </dependency>
+
+
     <!-- Camel -->
+
+    <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-core -->
+    <!-- https://mvnrepository.com/artifact/org.apache.camel/camel-spring-javaconfig -->
+
+
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-http</artifactId>
@@ -120,6 +134,25 @@
       <version>${camel.version}</version>
     </dependency>
 
+
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-sjms2</artifactId>
+      <version>${camel.version}</version>
+      <!-- use the same version as your Camel core version -->
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-componentdsl</artifactId>
+      <version>${camel.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-endpointdsl</artifactId>
+      <version>${camel.version}</version>
+    </dependency>
 
 
     <!-- Test -->

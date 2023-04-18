@@ -13,8 +13,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
-import static com.montojo.config.CamelConfig.RABBIT_URI;
+//import static com.montojo.config.CamelConfig.RABBIT_URI;
 import static org.apache.camel.Exchange.HTTP_RESPONSE_CODE;
+import static org.apache.camel.builder.endpoint.StaticEndpointBuilders.sjms2;
+
 
 /**
  * A simple Camel route that triggers from a timer and calls a bean and prints to system out.
@@ -80,6 +82,7 @@ public class MySpringBootRouter extends RouteBuilder {
 //                .process(this::getWeatherData)
 //                .marshal().json(JsonLibrary.Gson);
 
+/*
 
         restConfiguration()
                 .component("servlet")
@@ -109,6 +112,16 @@ public class MySpringBootRouter extends RouteBuilder {
         from("direct:eventtorabbit")
                 .marshal().json(JsonLibrary.Jackson, WeatherDTO.class)
                 .toF(RABBIT_URI, "weatherevent", "weatherevent");
+*/
+
+        from("timer:hello?period={{timer.period}}").routeId("hello")
+            .transform().method("myBean", "saySomething")
+                        .to(sjms2("sjms2", "DistributedQueue"));
+
+
+        from(sjms2("sjms2", "DistributedQueue"))
+                .routeId("WeblogicJMS")
+                .to("stream::out");
 
     }
 
