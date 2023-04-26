@@ -62,6 +62,7 @@ public class CamelConfig {
 //        another comment in main
 //        another comment in main
         return ComponentsBuilderFactory.sjms2().connectionFactory(queueConnectionFactory).build();
+
     }
 
 }
