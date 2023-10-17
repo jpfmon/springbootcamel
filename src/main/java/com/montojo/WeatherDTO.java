@@ -21,5 +21,4 @@ public class WeatherDTO implements Serializable{
     public static void decreaseCounter(){
         counter--;
     }
-
 }

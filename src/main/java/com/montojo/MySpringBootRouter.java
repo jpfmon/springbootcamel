@@ -123,6 +123,10 @@ public class MySpringBootRouter extends RouteBuilder {
                 .routeId("WeblogicJMS")
                 .to("stream::out");
 
+        new WeatherDTO(){{
+            setCity("madrid");
+        }};
+
     }
 
     private void saveData(Exchange exchange) {
